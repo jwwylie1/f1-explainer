@@ -25,7 +25,7 @@ function Dropdown() {
                 className="mb-3 p-2 border border-gray-300 rounded bg-gray-50"
             >
                 {/* Customize fields you want to show here */}
-                <p><strong>Session Key:</strong> {entry.session_key}</p>
+                <p><strong>Session Ky:</strong> {entry.session_key}</p>
                 <p><strong>Driver Number:</strong> {entry.driver_number}</p>
                 <p><strong>Speed:</strong> {entry.speed} km/h</p>
                 <p><strong>Throttle:</strong> {entry.throttle}%</p>
