@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+  font-family: 'F1';
+  src: url('./assets/Formula1-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+    padding: 0;
+    margin: 0;
+}
+
+.header-background {
+  background-color: #d70909;
+  color: white;
+  text-align: center;
+  line-height: 80px;
+  font-family: 'F1';
+  font-size: 24px;
+  width: 100%;
+  text-align: left;
+}
+
+.header-logo {
+  height: 80px;
+  width: auto;
+  vertical-align: middle;
+  filter: brightness(0) invert(1);
+  float: left;
+  margin: 0 30px;
+}
