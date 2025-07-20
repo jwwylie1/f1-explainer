@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-const SESSION_KEY = 9693
 
-function RaceHeader() {
+function RaceHeader({ sessionKey }) {
   const [session, setSession] = useState(null);
   const [meeting, setMeeting] = useState(null);
 
@@ -9,7 +8,7 @@ function RaceHeader() {
     const fetchSession = async () => {
         try {
             const res = await fetch(
-                `https://api.openf1.org/v1/sessions?session_key=${SESSION_KEY}`
+                `https://api.openf1.org/v1/sessions?session_key=${sessionKey}`
             );
             if (!res.ok) {
                 throw new Error(`HTTP error! Status: ${res.status}`);
@@ -40,11 +39,11 @@ function RaceHeader() {
     };
 
     fetchSession();
-  }, []); // Empty dependency array: run once on mount
+  }, [sessionKey]); // Empty dependency array: run once on mount
 
   return (
     <>
-    <div className="race-header w100">
+    <div className="race-header w100" style={{ '--bg-image': `url(/src/assets/circuits/${meeting?.location?.replace(' ', '')}.jpg)` }}>
         {meeting?.meeting_official_name}
         
     </div>

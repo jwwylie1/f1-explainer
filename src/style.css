@@ -6,6 +6,7 @@ body {
     font-family: 'F1';
     background-color: #222;
     color: white;
+    overflow-x: hidden;
 }
 
 button {border: 0;background-color: inherit; color: inherit; font-family: inherit}
@@ -43,19 +44,19 @@ button {border: 0;background-color: inherit; color: inherit; font-family: inheri
   height: 80px;
   margin-right: 30px;
   padding: 0 10px;
-
+  width: 200px;
 }
 
-.header-background button:hover {
+.header-background button:hover, .race-element:hover {
   background-color: #b60808;
   cursor: pointer;
 }
 
 .race-header {
-  padding: 60px 0 60px 5vw;
+  padding-left: 5vw;
   display: flex;
   align-items: center;
-  height: 180px;
+  height: 20vw;
   font-size: 1.8vw;
   box-sizing: border-box;
 }
@@ -69,34 +70,92 @@ button {border: 0;background-color: inherit; color: inherit; font-family: inheri
   margin: 0 30px;
 }
 
+.races-dropdown-container {
+  position: absolute;
+  top: 80px; /* Adjust based on your header height */
+  right: 0;
+  width: 280px;
+  border-top: 3px solid #222;
+  z-index: 1000; /* Ensure it appears above others */
+  background-color: #d70909;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  overflow-y: scroll;
+}
+
+.races-dropdown-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.races-dropdown-container.open {
+  max-height: 500px; /* big enough to fit full menu */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.race-element {
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  line-height: initial;
+}
+
+.race-element img {
+  height: 20px;
+  width: 20px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+
+.race-list {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.race-list.open {
+  max-height: 1000px; /* Large enough to fit the content */
+  transition: max-height 0.5s ease-in;
+}
+
 .dropdown-bar {
-  border: 1px solid #444;
+  border-top: 3px solid #444;
+  border-bottom: 1px solid #333;
   background-color: #222;
   height: 60px;
   line-height: 60px;
   font-size: 16px;
   color: white;
+  padding-left: 5vw;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
-.dropdown-bar:hover {
-  background-color: #333;
-  cursor: pointer;
-}
-
-.dropdown-bar img, .radio-lap {
-  width: 60px;
-  height: 60px;
-  margin: 0 10px;
+.dropdown-img {
+  width: 6vw;
+  height: 57px;
+  margin: 0 1vw;
   float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.driver-name {
+.dropdown-img img {max-height: 100%; max-width: 100%}
+
+.driver-name, .team-name {
   float: left;
-  width: 25vw;
+  width: 32vw;
 }
 
 .dropdown-arrow {
-  width: 80px
+  width: 6vw
 }
 
 .dropdown-menu {
@@ -134,4 +193,82 @@ button {border: 0;background-color: inherit; color: inherit; font-family: inheri
 .dropdown.open .dropdown-menu {
   opacity: 1;
   visibility: visible;
+}
+
+.f1-explainer {
+  display: flexbox;
+  align-items: center;
+  background-color: #222;
+}
+
+.f1-explainer audio {
+  width: 230px;
+  margin: 20px;
+}
+
+.aa {
+  background-color: blue;
+}
+
+.f1-explainer button {
+  background-color: #d70909;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.before-explanation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.output-container {
+  display: flex;
+  align-items: stretch;
+}
+
+.output-container div {
+  width: 100%;
+  padding: 20px;
+  background-color: #333;
+  border-radius: 5px;
+  margin: 10px;
+  flex-direction: column;
+}
+
+h2 { text-decoration: underline;}
+
+.context-table {
+  width: 80%;
+  margin: 15px 0 30px 10%;
+  text-align: center;;
+  border-collapse: collapse;
+}
+
+.context-table tr {
+  height: 40px;
+}
+
+.SOFT {color: #FF0000}
+.MEDIUM	{color: #FFF200}
+.HARD	{color: #FFFFFF}
+.INTERMEDIATE	{color: #00A550}
+.WET {color: #0072C6}
+
+.race-header::before {
+  content: '';
+  position: absolute;
+  top: 80px; left: 0;
+  width: 100%;
+  height: 20vw;
+  background-image: var(--bg-image);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.2;
+  z-index: -100;
 }
