@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import Header from './components/Header'
 import RaceHeader from './components/RaceHeader'
+import Canvas from './components/Canvas'
+import DriverList from './components/DriverList'
 import getMeeting from './data/getMeeting';
 import races from './data/races.js'
 
 
 function LapVisualizer({ sessionKey, setSessionKey }) {
 
-  const [messages, setMessages] = useState(null);
-	const [drivers, setDrivers] = useState([]);
+  const [driversList, setDriversList] = useState([]);
+  const [drivers, setDrivers] = useState([]);
   const [session, setSession] = useState(null);
   const [meeting, setMeeting] = useState(null);
   const [lap, setLap] = useState('');
@@ -30,27 +32,16 @@ function LapVisualizer({ sessionKey, setSessionKey }) {
 
     const fetchData = async () => {
 
-      const [messagesRes, driversRes] = await Promise.all([
-        fetch(`https://api.openf1.org/v1/team_radio?session_key=${sessionKey}`),
-        fetch(`https://api.openf1.org/v1/drivers?session_key=${sessionKey}`)
-      ]);
-
-      const [messagesData, driversData] = await Promise.all([
-        messagesRes.json(),
-        driversRes.json()
-      ])
-
-      setMessages(messagesData)
-      setDrivers(driversData)
+      const driversRes = await fetch(`https://api.openf1.org/v1/drivers?session_key=${sessionKey}`);
+      const driversData = await driversRes.json()
+      setDriversList(driversData)
     }
 
     const fetchMeetings = async (key) => {
       const meeting = await getMeeting(sessionKey)
       setMeeting(meeting);
-      console.log(meeting)
       const racesInYear = races[meeting?.year];
       const laps = racesInYear.find(gp => gp.location === meeting?.location)?.num_laps;
-      console.log(racesInYear)
       setMaxLap(laps)
     };
 
@@ -65,10 +56,15 @@ function LapVisualizer({ sessionKey, setSessionKey }) {
     <>
       <Header sessionKey={sessionKey} setSessionKey={setSessionKey} />
       <RaceHeader sessionKey={sessionKey}/>
-      <form>
+      {/*<form>
+        {console.log(driversList)}
         <input type="number" value={lap} onChange={handleInputChange} placeholder={maxLap}></input>
+        <DriverList drivers={driversList} />
         <div onClick={(event) => {handleSubmit(event)}}>Submit</div>
-      </form>
+      </form>*/}
+
+      <Canvas />
+
     </>
   )
 }

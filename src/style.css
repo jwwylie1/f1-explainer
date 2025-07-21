@@ -46,7 +46,7 @@ button {
 }
 
 .header-background {
-  background-color: #d70909;
+  background-color: /*#d70909*/ #222;
   color: white;
   text-align: center;
   line-height: 80px;
@@ -97,7 +97,7 @@ button {
   border-top: 3px solid #222;
   z-index: 1000;
   /* Ensure it appears above others */
-  background-color: #d70909;
+  background-color: /*#d70909*/ #222;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease;
@@ -234,12 +234,8 @@ button {
   margin: 20px;
 }
 
-.aa {
-  background-color: blue;
-}
-
 .f1-explainer button {
-  background-color: #d70909;
+  background-color: /*#d70909*/ #222;
   color: white;
   border: none;
   padding: 12px 24px;
@@ -317,4 +313,12 @@ h2 {
   background-size: cover;
   opacity: 0.2;
   z-index: -100;
+}
+
+.canvas-background {
+  width: 90vw;
+  padding: 5vw;
+  margin: 5vw;
+  box-sizing: border-box;
+  border-radius: 16px;
 }
