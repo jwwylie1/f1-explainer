@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import Header from './components/Header'
-import RaceHeader from './components/RaceHeader'
-import RadioDropdown from './components/RadioDropdown'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import RadioExplainer from './RadioExplainer'; // Your Radio Explainer component
+import LapVisualizer from './LapVisualizer'; // Your Track Visualizer component
 
 function App() {
 
   const [sessionKey, setSessionKey] = useState(9947); // most recent session key
 
   return (
-    <>
-      <Header sessionKey={sessionKey} setSessionKey={setSessionKey}/>
-      <RaceHeader sessionKey={sessionKey}/>
-      <RadioDropdown sessionKey={sessionKey}/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/radio-explainer" element={<RadioExplainer sessionKey={sessionKey} setSessionKey={setSessionKey} />} />
+        <Route path="/lap-visualizer" element={<LapVisualizer sessionKey={sessionKey} setSessionKey={setSessionKey} />} />
+      </Routes>
+    </Router>
   )
 }
 

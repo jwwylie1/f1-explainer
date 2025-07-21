@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import getMeeting from '../data/getMeeting';
 
 function RaceHeader({ sessionKey }) {
   const [session, setSession] = useState(null);
   const [meeting, setMeeting] = useState(null);
 
   useEffect(() => {
-    const fetchSession = async () => {
+    /* const fetchSession = async () => {
         try {
             const res = await fetch(
                 `https://api.openf1.org/v1/sessions?session_key=${sessionKey}`
@@ -20,25 +21,14 @@ function RaceHeader({ sessionKey }) {
             console.error('Error fetching messages:', error);
             // Handle the error appropriately, possibly set an error state
         }
-    };
+    };*/
 
-    const fetchMeeting = async (key) => {
-      try {
-          const res = await fetch(
-              `https://api.openf1.org/v1/meetings?meeting_key=${key}`
-          );
-          if (!res.ok) {
-              throw new Error(`HTTP error! Status: ${res.status}`);
-          }
-          const data = await res.json();
-          setMeeting(data[0]); // Limit for demo
-      } catch (error) {
-          console.error('Error fetching messages:', error);
-          // Handle the error appropriately, possibly set an error state
-      }
+    const fetchMeetings = async (key) => {
+        const meeting = await getMeeting(sessionKey)
+        setMeeting(meeting);
     };
-
-    fetchSession();
+    fetchMeetings(sessionKey)
+    
   }, [sessionKey]); // Empty dependency array: run once on mount
 
   return (
