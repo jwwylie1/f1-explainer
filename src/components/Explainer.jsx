@@ -52,7 +52,9 @@ function F1Explainer({message}) {
             </div>
             )}
             {output && (
+              console.log(output['prompt']),
             <table className='context-table'>
+              <tbody>
                 <tr>
                     <td>Lap</td>
                     <td>Position</td>
@@ -67,7 +69,7 @@ function F1Explainer({message}) {
                     <td>{output['context'][3]}</td>
                     <td>{output['context'][4]}</td>
                 </tr>
-                
+                </tbody>
             </table>
             )}
         </div>
