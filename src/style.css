@@ -322,3 +322,16 @@ h2 {
   box-sizing: border-box;
   border-radius: 16px;
 }
+
+.driver-comparison-table {
+  border: 4px solid #333;
+  border-collapse: collapse;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.driver-comparison-table td {
+  border: 2px solid #333;
+  padding: 10px;
+  text-align: center;
+}
