@@ -13,6 +13,7 @@ function LapVisualizer({ sessionKey, setSessionKey }) {
   const [drivers, setDrivers] = useState([]);
   const [session, setSession] = useState(null);
   const [meeting, setMeeting] = useState(null);
+  const [race, setRace] = useState(null)
   const [lap, setLap] = useState('');
   const [maxLap, setMaxLap] = useState('N/A')
 
@@ -41,7 +42,9 @@ function LapVisualizer({ sessionKey, setSessionKey }) {
       const meeting = await getMeeting(sessionKey)
       setMeeting(meeting);
       const racesInYear = races[meeting?.year];
-      const laps = racesInYear.find(gp => gp.location === meeting?.location)?.num_laps;
+      const race = racesInYear.find(gp => gp.location === meeting?.location)
+      const laps = race?.num_laps;
+      setRace(race)
       setMaxLap(laps)
     };
 
@@ -63,7 +66,7 @@ function LapVisualizer({ sessionKey, setSessionKey }) {
         <div onClick={(event) => {handleSubmit(event)}}>Submit</div>
       </form>*/}
 
-      <Canvas />
+      <Canvas race={race}/>
 
     </>
   )

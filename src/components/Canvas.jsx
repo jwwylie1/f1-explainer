@@ -17,7 +17,7 @@ function rotate(x, y, scale, rotation, flips) {
   return { x: scale * flips[0] * newX, y: scale * flips[1] * newY };
 }
 
-function Canvas() {
+function Canvas({ race }) {
   const canvasRef = useRef(null);
   const [canvasSize, setCanvasSize] = useState([]);
   const [image, setImage] = useState(null);
@@ -38,7 +38,6 @@ function Canvas() {
   const playbackStart = useRef(null);
   const startTime1 = useRef(null);
   const startTime2 = useRef(null);
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -72,9 +71,10 @@ function Canvas() {
   }, []);
 
   useEffect(() => {
-    if (car1Location && car2Location) {
+    if (car1Location && car2Location && race) {
       const img = new Image();
-      img.src = "./src/assets/circuits/Silverstone.webp";
+      console.log(race)
+      img.src = `./src/assets/circuits/${race.name}.webp`;
       img.onload = () => {
         const canvasWidth = window.innerWidth * 0.8; // 80% of the page width
         const aspectRatio = img.naturalWidth / img.naturalHeight;
@@ -128,7 +128,7 @@ function Canvas() {
         return () => clearInterval(interval);
       };
     }
-  }, [car1Location]);
+  }, [car1Location, race]);
 
   useEffect(() => {
     const car1Available = car1Location && car1Data && frameIndex1 < car1Location.length - 1;
@@ -179,7 +179,6 @@ function Canvas() {
   }, [currentTime, frameIndex1, frameIndex2]);
 
   const drawCar1 = (ctx, canvas) => {
-        console.log(driver1.x, driver1.y)
 
     ctx.strokeStyle = "orange";
     const newCoords1 = rotate(
@@ -203,7 +202,7 @@ function Canvas() {
   };
 
   const drawCar2 = (ctx, canvas) => {
-    console.log('green')
+
     ctx.strokeStyle = "green"
     const newCoords2 = rotate(
       car2Location[frameIndex2 + 1].x - car2Location[frameIndex2].x,
