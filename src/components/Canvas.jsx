@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 
-const SCALE = 0.000038;
-const ERROR_X = 0.15;
-const ERROR_Y = 0.1;
-const ANGLE = 200; // Increase = counterclockwise
+const SCALE = 0.000054;
+const ERROR_X = -0.155;
+const ERROR_Y = 0.12;
+const ANGLE = 58; // Increase = counterclockwise
 const FLIP = [-1,1]
 const SPEED_MULT = 1;
 
@@ -48,10 +48,10 @@ function Canvas({ race }) {
     const fetchData = async () => {
       const [car1LocRes, car2LocRes, car1DataRes, car2DataRes] = await Promise.all([
         fetch(
-          "https://api.openf1.org/v1/location?session_key=9118&driver_number=81&date%3E2023-07-02T13:38:02.735000+00:00&date%3C2023-07-02T13:40:02.735000+00:00"
+          "https://api.openf1.org/v1/location?session_key=9673&driver_number=81&date%3E2024-04-21T07:42:14.236000+00:00&date%3C2024-04-21T07:44:14.236000+00:00"
         ),
         fetch(
-          "https://api.openf1.org/v1/location?session_key=9118&driver_number=27&date%3E2023-07-02T13:38:42.735000+00:00&date%3C2023-07-02T13:40:42.735000+00:00"
+          "https://api.openf1.org/v1/location?session_key=9673&driver_number=27&date%3E2024-04-21T07:41:44.236000+00:00&date%3C2024-04-21T07:44:14.236000+00:00"
         ),
         fetch (
           "https://api.openf1.org/v1/car_data?session_key=9998&driver_number=81&date%3E2025-03-23T07:36:38.944000+00:00&date%3C2025-03-23T07:38:16.841000+00:00",
@@ -81,7 +81,7 @@ function Canvas({ race }) {
       const img = new Image();
       console.log(race)
       //img.src = `./src/assets/circuits/${race.name}.webp`;
-      img.src = `./src/assets/circuits/Austria.webp`;
+      img.src = `./src/assets/circuits/China.webp`;
       img.onload = () => {
         const canvasWidth = window.innerWidth * 0.8; // 80% of the page width
         const aspectRatio = img.naturalWidth / img.naturalHeight;
