@@ -63,7 +63,7 @@ const RadioDropdown = ({ sessionKey }) => {
 
 	return (
 		<>
-			<div className='dropdown-bar'>
+			<div className='dropdown-bar white'>
 				<span className='center floatl' style={{ width: '35vw' }}>DRIVER</span>
 				<span className='center floatl' style={{ width: '35vw', marginLeft: '60px' }}>TEAM</span>
 			</div>
@@ -76,7 +76,7 @@ const RadioDropdown = ({ sessionKey }) => {
 						console.warn(`Driver not found for driver_number: ${item['driver_number']}`);
 						return (
 							<div key={index} className='dropdown-container'>
-								<div className='dropdown-bar'>
+								<div className='dropdown-bar white'>
 									<span>Driver #{item['driver_number']} (Data not found)</span>
 								</div>
 							</div>
@@ -86,7 +86,7 @@ const RadioDropdown = ({ sessionKey }) => {
 					return (
 						<React.Fragment key={index}>
 							<div className='dropdown-container'>
-								<div className='dropdown-bar'>
+								<div className='dropdown-bar white'>
 									<div className="dropdown-img">
 										<img
 											src={`./src/assets/drivers/${driver.name_acronym}.webp`}
