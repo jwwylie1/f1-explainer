@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 
 function HomePage({ sessionKey, setSessionKey}) {
 
+  document.title = "Pitwall Home";
+
   return (
     <>
     <Header sessionKey={sessionKey} setSessionKey={setSessionKey} 
@@ -23,13 +25,13 @@ function HomePage({ sessionKey, setSessionKey}) {
       users to review some of the messages they may have missed throughout the broadcast.
       Pitwall will also transcribe the message and provide an AI-generated explanation,
       encouraging new fans to interact with the sport even if they do not understand
-      all the technical language of the sport yet. 
+      all of its technical language yet. 
       <br/>
       <h3>Technical Details</h3>
 
       Radio messages are gathered using <a href="https://openf1.org/" target="_blank">
       OpenF1's</a> team radio API when a race is selected.
-      Upon request from the user, a Python script is invoked. This script first uses <a
+      Upon request from the user, a Python script is invoked using FastAPI. This script first uses <a
        href="https://github.com/openai/whisper" target="_blank">OpenAI's whisper model
        </a> to transcribe the message, along with helper functions that 
       increase its ability to pick up commonly used phrases and names. It then makes 

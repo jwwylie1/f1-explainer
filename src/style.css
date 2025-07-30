@@ -72,11 +72,14 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 24px;
   text-align: left;
   border-bottom: 1px solid #222;
+  display: flex;
+  align-items: center;
 }
 
 .header-background button {
   font-size: 18px;
   height: 80px;
+  margin-left: auto;
   margin-right: 30px;
   padding: 0 10px;
   width: 200px;
@@ -100,7 +103,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .home-header {font-size: 2.2vw}
 
 .header-logo {
-  height: 80px;
+  height: 60px;
   width: auto;
   vertical-align: middle;
   filter: brightness(0) invert(1);
@@ -299,7 +302,6 @@ h2 {
 .race-header::before {
   content: '';
   position: absolute;
-  top: 80px;
   left: 0;
   width: 100%;
   height: 20vw;

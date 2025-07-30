@@ -7,7 +7,8 @@ function Header({sessionKey, setSessionKey, title, showChange=true}) {
   return (
     <div className="header-background w100 white">
         <Link to="/">
-          <img src="./src/assets/logos/f1.png" alt="F1 Logo" className="header-logo" />
+          <img src="./src/assets/logos/pitwall.png" alt="Pitwall Logo" className="header-logo" />
+
         </Link>
         {title}
         {showChange && <RaceSelectDropdown sessionKey={sessionKey} setSessionKey={setSessionKey}/>}
