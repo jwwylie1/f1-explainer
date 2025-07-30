@@ -25,4 +25,3 @@ dist-ssr
 
 api/env/
 api/__pycache__/
-*.safetensors
