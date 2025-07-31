@@ -1,6 +1,6 @@
 import RaceSelectDropdown from './RaceSelectDropdown.jsx'
 import { Link } from 'react-router-dom';
-import { logo } from '../assets/logos/pitwall.png';
+import logo from '../assets/logos/pitwall.png';
 
 
 function Header({sessionKey, setSessionKey, title, showChange=true}) {
