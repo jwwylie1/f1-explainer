@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 
 function F1Explainer({message}) {
+  const API_BASE_URL = process.env.NODE_ENV === 'production'
+    ? 'https://jwwylie1-pitwall-ai.hf.space'
+    : 'http://localhost:8000'
+
   const [inputText, setInputText] = useState('');
   const [output, setOutput] = useState('');
   const [loading, setLoading] = useState(false);
@@ -8,7 +12,7 @@ function F1Explainer({message}) {
   const generate = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8000/generate', {
+      const res = await fetch(`${API_BASE_URL}/generate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
