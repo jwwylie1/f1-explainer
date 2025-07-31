@@ -11,7 +11,7 @@ function HomePage({ sessionKey, setSessionKey}) {
     title={'Home Page'} showChange={false} />
 
     <div className="race-header w100 home-header" style={{ 
-      '--bg-image': `url(/src/assets/backgrounds/pitwall.jpg)` }}>
+      '--bg-image': `url(/assets/backgrounds/pitwall.jpg)` }}>
         Welcome to Pitwall !
     </div>
 

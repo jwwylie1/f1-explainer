@@ -33,7 +33,7 @@ function RaceHeader({ sessionKey }) {
 
   return (
     <>
-    <div className="race-header w100" style={{ '--bg-image': `url(/src/assets/backgrounds/${meeting?.location?.replace(' ', '')}.jpg)` }}>
+    <div className="race-header w100" style={{ '--bg-image': `url(/assets/backgrounds/${meeting?.location?.replace(' ', '')}.jpg)` }}>
         {meeting?.meeting_official_name}
         
     </div>
