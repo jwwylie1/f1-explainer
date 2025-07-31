@@ -133,8 +133,8 @@ function Canvas({ race, driver1, driver2, lap, speed }) {
   useEffect(() => {
     if (car1Location && car2Location && race) {
       const img = new Image();
-      //img.src = `./src/assets/circuits/${race.name}.webp`;
-      img.src = `./src/assets/circuits/${race.name}.webp`;
+      //img.src = `/assets/circuits/${race.name}.webp`;
+      img.src = `/assets/circuits/${race.name}.webp`;
       img.onload = () => {
         const canvasWidth = window.innerWidth * 0.8; // 80% of the page width
         const aspectRatio = img.naturalWidth / img.naturalHeight;

@@ -89,7 +89,7 @@ const RadioDropdown = ({ sessionKey }) => {
 								<div className='dropdown-bar white'>
 									<div className="dropdown-img">
 										<img
-											src={`./src/assets/drivers/${driver.name_acronym}.webp`}
+											src={`/assets/drivers/${driver.name_acronym}.webp`}
 											alt={driver.name_acronym}
 											onError={(e) => {
 												console.log('Headshot image failed to load:', driver.headshot_url);
@@ -102,10 +102,10 @@ const RadioDropdown = ({ sessionKey }) => {
 									</span>
 									<div className="dropdown-img">
 										<img
-											src={`./src/assets/logos/${driver.team_name}.webp`}
+											src={`/assets/logos/${driver.team_name}.webp`}
 											alt={driver.team_name?.slice(0, 3) || 'Team'}
 											onError={(e) => {
-												console.log('Team logo failed to load:', `./src/assets/logos/${driver.team_name}.webp`);
+												console.log('Team logo failed to load:', `/assets/logos/${driver.team_name}.webp`);
 												e.target.style.display = 'none';
 											}}
 										/>

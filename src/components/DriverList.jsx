@@ -11,7 +11,7 @@ function DriverList({ drivers, changeDrivers }) {
 						style={{color: `#${driver.team_colour}`}}
 						onClick={() => {changeDrivers(driver); highlightDrivers(index)}}>
 						<img
-											src={`./src/assets/drivers/${driver.name_acronym}.webp`}
+											src={`/assets/drivers/${driver.name_acronym}.webp`}
 											alt={driver.name_acronym}
 											onError={(e) => {
 												console.log('Headshot image failed to load:', driver.headshot_url);

@@ -43,7 +43,7 @@ function RaceSelectDropdown({ sessionKey, setSessionKey }) {
 										return (
 											<div className='race-element' key={index2} onClick={() => selectRace(race)}>
 												
-												<img src={'./src/assets/flags/' + race.name + '.png'}></img>
+												<img src={'/assets/flags/' + race.name + '.png'}></img>
 												{race.name}
 											</div>
 										)
