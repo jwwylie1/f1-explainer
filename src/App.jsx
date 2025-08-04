@@ -7,7 +7,7 @@ import LapVisualizer from './LapVisualizer'; // Track Visualizer component
 
 function App() {
 
-  const [sessionKey, setSessionKey] = useState(9939); // most recent session key
+  const [sessionKey, setSessionKey] = useState(9928); // most recent session key
 
   return (
     <Router>
