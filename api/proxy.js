@@ -5,8 +5,8 @@ export default async function handler(req, res) {
   }
 
   try {
-    //const hfRes = await fetch('https://jwwylie1-pitwall-ai.hf.space/generate', {
-    const hfRes = await fetch('http://localhost:7860/generate', {
+    const hfRes = await fetch('https://jwwylie1-pitwall-ai.hf.space/generate', {
+    //const hfRes = await fetch('http://localhost:7860/generate', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
