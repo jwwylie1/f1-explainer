@@ -245,6 +245,9 @@ function Canvas({ race, driver1, driver2, lap, speed }) {
       race.flip
     );
 
+    newCoords1.x -= 1;
+    newCoords1.y -= 1;
+
     if (driver1pos.x != 0 && driver1pos.y != 0) {
       ctx.beginPath(); // Start a new path
       ctx.moveTo(driver1pos.x, driver1pos.y); // Move the "pen" to the starting point
@@ -271,6 +274,9 @@ function Canvas({ race, driver1, driver2, lap, speed }) {
       race.flip
     );
 
+    newCoords2.x += 1;
+    newCoords2.y += 1;
+
     if (driver2pos.x != 0 && driver2pos.y != 0) {
       ctx.beginPath(); // Start a new path
       ctx.moveTo(driver2pos.x, driver2pos.y); // Move the "pen" to the starting point
@@ -291,6 +297,8 @@ function Canvas({ race, driver1, driver2, lap, speed }) {
       <div className="canvas-background">
         <canvas ref={canvasRef} style={{ display: image ? "none" : "block" }} />
         {image && <img src={image} alt="Image" />}
+        <br/><br/><br/>
+        <i>*Paths are slightly offset for visual purposes</i>
       </div>
 
       <table className='driver-comparison-table'>

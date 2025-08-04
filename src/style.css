@@ -322,6 +322,10 @@ h2 {
   background-color: #444;
 }
 
+.canvas-background i {
+  font-size: 20px;
+}
+
 .driver-comparison-table {
   border: 4px solid #333;
   border-collapse: collapse;
