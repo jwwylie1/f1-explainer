@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 function F1Explainer({message}) {
-  const API_BASE_URL = process.env.NODE_ENV === 'production'
+  /* const API_BASE_URL = process.env.NODE_ENV === 'production'
     ? 'https://jwwylie1-pitwall-ai.hf.space'
-    : 'http://localhost:8000'
+    : 'http://localhost:8000' */
+
+  const API_BASE_URL = 'https://huggingface.co/spaces/jwwylie1/pitwall-ai';
 
   const [inputText, setInputText] = useState('');
   const [output, setOutput] = useState('');
@@ -12,12 +14,11 @@ function F1Explainer({message}) {
   const generate = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`${API_BASE_URL}/generate`, {
+              console.log('Sending to proxy:', message);
+      const res = await fetch('/api/proxy', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ input_text: message }), // must match FastAPI field name
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify( { input_text: message } ),
       });
 
       const data = await res.json();

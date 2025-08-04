@@ -22,7 +22,8 @@ const RadioDropdown = ({ sessionKey }) => {
 				]);
 
 				if (!messagesRes.ok) {
-					throw new Error(`HTTP error fetching messages! Status: ${messagesRes.status}`);
+					throw new Error('Unable to retrieve messages. This may be due to a Formula\
+						One event happening at the moment, which blocks information retrieval.');
 				}
 				if (!driversRes.ok) {
 					throw new Error(`HTTP error fetching drivers! Status: ${driversRes.status}`);
