@@ -18,8 +18,12 @@ function HomePage({ sessionKey, setSessionKey}) {
     <div className='index-body'>
 
       <h1 className="index-title center">Pitwall gives Formula One fans a unique perspective as they look back on a race.</h1>
-      <Link to="/radio-explainer" className='index-link'>Radio Explainer</Link>
+      <Link to="/radio-explainer" className='index-link'>Radio Explainer*</Link>
       <br/>
+      <i>*Transcription and explanation with AI are unfortunately only available
+        through the GitHub repository due to the model being too large to host online.
+      </i>
+      <br/><br/>
       Drivers and their teams are in constant communication with each other. Strategy, 
       celebration, and frustration run through the headsets all race. This tool allows
       users to review some of the messages they may have missed throughout the broadcast.
