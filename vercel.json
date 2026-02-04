@@ -1,5 +1,14 @@
 {
   "rewrites": [
     { "source": "/(.*)", "destination": "/" }
+  ],
+
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://new-website.com",
+      "permanent": true
+    }
   ]
+
 }
